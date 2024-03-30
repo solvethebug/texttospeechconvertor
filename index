@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text to Speech Converter</title>
+  <style>
+    body {
+      background-color: black;
+      margin: 0; 
+      font-family: Arial, sans-serif; 
+      color: white; 
+    }
+h2{
+   text-align: center;
+   padding-top: 10px;
+    font-size: 50px;
+    color: #eee;
+    text-transform: capitalize;
+    background: linear-gradient(-45deg, #eeaa52, #e73c6f, #2394d5, #2af3b7);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 8px transparent;
+}
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 40vh; 
+      width: 100%;
+    
+   
+   
+    }
+  
+    #inputText {
+        margin-top: 0%;
+        padding-top: 0%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px; 
+      background-color: white; 
+      color: black;
+      resize: none; 
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-image: linear-gradient(to right, #4CAF50, #00bcd4);
+      color: white;
+      font-weight: bold;
+      transition: 0.3s ease-in-out;
+      margin-left: 10px;
+    
+    }
+
+    button:hover {
+      background-image: linear-gradient(to right, #00bcd4, #4CAF50);
+    }
+  </style>
+</head>
+<body>
+    <h2>TEXT TO SPEECH CONVERTER</h2>
+  <div class="container">
+    <textarea id="inputText" cols="50" rows="4" placeholder="Enter text to speak"></textarea>
+    <button onclick="speak()">Speak</button>
+  </div>
+  <script>
+    function speak() {
+      var text = document.getElementById("inputText").value;
+      var speech = new SpeechSynthesisUtterance();
+      speech.text = text;
+      speech.volume = 1;
+      speech.rate = 1;
+      speech.pitch = 1;
+      window.speechSynthesis.speak(speech); 
+    }
+  </script>
+</body>
+</html>
